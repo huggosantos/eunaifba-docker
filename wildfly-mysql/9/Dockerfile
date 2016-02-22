@@ -1,4 +1,4 @@
-FROM eunaifba/wildfly:9.0.2
+FROM eunaifba-docker/wildfly:9.0.2
 
 ENV WILDFLY_VERSION 9.0.2
 ENV MYSQL_CONNECTOR_VERSION 5.1.38
