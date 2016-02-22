@@ -1,4 +1,4 @@
-FROM ubuntu:14.04 
+FROM maven:3.3.3-jdk-8
 MAINTAINER Huggo Oliveira "huggo.oliveira1@gmail.com"
 
 RUN wget http://download.netbeans.org/netbeans/8.1/final/bundles/netbeans-8.1-linux.sh -O /tmp/netbeans.sh -q && \
