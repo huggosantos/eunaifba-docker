@@ -1,4 +1,4 @@
-FROM jdk:8
+FROM jdk/8
 
 RUN adduser --disabled-password --home /opt/jboss --gecos "" jboss
 
