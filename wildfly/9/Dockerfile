@@ -1,4 +1,4 @@
-FROM jdk/8
+FROM huggosantos/jdk8
 
 RUN adduser --disabled-password --home /opt/jboss --gecos "" jboss
 
