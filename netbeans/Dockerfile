@@ -1,7 +1,7 @@
 #
 # NetBeans 8.1 + JDK 1.8u71 bundle
 #
-FROM ubuntu:14.04
+FROM huggosantos/ubuntu
 
 MAINTAINER Huggo Oliveira "huggo.oliveira1@gmail.com"
 
