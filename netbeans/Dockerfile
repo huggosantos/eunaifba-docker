@@ -18,7 +18,7 @@ RUN apt-get update && apt-get install -y \
 #ENV POLICY_URL=http://download.oracle.com/otn-pub/java/jce/7/UnlimitedJCEPolicyJDK7.zip
 ENV NETBEANS_URL=http://download.netbeans.org/netbeans/8.1/final/bundles/netbeans-8.1-javaee-linux.sh 
 ENV POLICY_URL=http://download.oracle.com/otn-pub/java/jce/8/jce_policy-8.zip 
-ENV COOKIE="Cookie: gpw_e24=http%3A%2F%2Fwww.oracle.com%2F; oraclelicense=accept-securebackup-cookie"
+ENV COOKIE="Cookie: start.html?platform=linux&lang=pt_BR&option=javaee"
 
 RUN wget --progress=bar:force $NETBEANS_URL -O /tmp/netbeans-8.1-javaee-linux.sh \
         --no-cookies --no-check-certificate --header "$COOKIE" \
