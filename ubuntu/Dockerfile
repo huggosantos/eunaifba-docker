@@ -1,5 +1,7 @@
 FROM ubuntu:14.04
 
+MAINTAINER Huggo Oliveira "huggo.oliveira1@gmail.com"
+
 # much of this was gleaned from https://github.com/lxc/lxc/blob/lxc-0.8.0/templates/lxc-ubuntu.in
 # and then heavily modified and hacked like crazy
 
