@@ -10,7 +10,7 @@ RUN sed 's/main$/main universe/' -i /etc/apt/sources.list && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/* && \
     rm -rf /tmp/*
-ADD state.xml /tmp/state.xml
+
 RUN wget http:http://download.netbeans.org/netbeans/8.1/final/bundles/netbeans-8.1-linux.sh -O netbeans-linux.sh -q && \
     chmod +x /tmp/netbeans.sh && \
     echo 'Installing netbeans' && \
