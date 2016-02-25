@@ -20,11 +20,11 @@ ENV NETBEANS_URL=http://download.netbeans.org/netbeans/8.1/final/bundles/netbean
 ENV POLICY_URL=http://download.oracle.com/otn-pub/java/jce/8/jce_policy-8.zip 
 ENV COOKIE="Cookie: gpw_e24=http%3A%2F%2Fwww.oracle.com%2F; oraclelicense=accept-securebackup-cookie"
 
-RUN wget --progress=bar:force $NETBEANS_URL -O /tmp/netbeans.sh \
+RUN wget --progress=bar:force $NETBEANS_URL -O /tmp/netbeans-8.1-javaee-linux.sh \
         --no-cookies --no-check-certificate --header "$COOKIE" \
         && echo "Installing NetBeans $NETBEANS_VERSION..." \
-        && chmod +x /tmp/netbeans.sh; sleep 1 \
-        && /tmp/netbeans.sh --silent \
+        && chmod +x /tmp/netbeans-8.1-javaee-linux.sh; sleep 1 \
+        && /tmp/netbeans-8.1-javaee-linux.sh --silent \
         && rm -rf /tmp/* \
         && ln -s $(ls -d /usr/local/netbeans-*) /usr/local/netbeans
 
