@@ -30,11 +30,11 @@ ENV TMP_DOWNLOAD /tmp/downloads
 RUN mkdir -p ${TMP_DOWNLOAD}
 WORKDIR ${TMP_DOWNLOAD}
 
-RUN wget -vP $TMP_DOWNLOAD http://download.netbeans.org/netbeans/8.1/rc2/bundles/netbeans-8.1rc2-javaee-linux.sh
-ENV NETBEANS_SCRIPT=$TMP_DOWNLOAD/netbeans-8.1rc2-javaee-linux.sh
+RUN wget -vP $TMP_DOWNLOAD http://download.netbeans.org/netbeans/8.1/final/bundles/netbeans-8.1-linux.sh
+ENV NETBEANS_SCRIPT=$TMP_DOWNLOAD/netbeans-8.1-linux.sh
 RUN chmod +x $NETBEANS_SCRIPT   
 RUN apt-get install -y  libxext-dev libxrender-dev libxtst-dev && apt-get clean && rm -rf /var/lib/apt/lists/*   
 RUN $NETBEANS_SCRIPT --silent -J-Djava.awt.headless=true -J-Dswing.defaultlaf=javax.swing.plaf.nimbus.NimbusLookAndFeel
 RUN sed -e '/netbeans_jdkhome/ s/^#*/#/' -i /usr/local/netbeans-8.1rc2/etc/netbeans.conf
 
-CMD /usr/local/netbeans-8.1rc2/bin/netbeans --laf com.sun.java.swing.plaf.nimbus.NimbusLookAndFeel
+CMD /usr/local/netbeans-8.1/bin/netbeans --laf com.sun.java.swing.plaf.nimbus.NimbusLookAndFeel
