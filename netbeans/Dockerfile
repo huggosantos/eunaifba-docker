@@ -1,14 +1,40 @@
-FROM huggosantos/ubuntu
-MAINTAINER Maxime Lasserre "maxlasserre@free.fr"
+#####################################################
+#  1)run xhost + locally 
+#  2)docker run -it 
+#              -v=/tmp/.X11-unix:/tmp/.X11-unix
+#              -e DISPLAY=unix$DISPLAY 
+#              --device /dev/ati #adjust to your graphics driver
+#               netbeans:8.1rc2 
+# Ubuntu
+FROM huggosantos/ubuntu 
+MAINTAINER Huggo Oliveira "huggo.oliveira1@gmail.com"
 
-ADD state.xml /tmp/state.xml
+RUN apt-get update && apt-get install -y \
+       subversion \
+       git \
+       wget 
 
-RUN wget http://download.netbeans.org/netbeans/8.1/final/bundles/netbeans-8.1-javase-linux.sh -O /tmp/netbeans.sh -q && \
-    chmod +x /tmp/netbeans.sh && \
-    echo 'Installing netbeans' && \
-    /tmp/netbeans.sh --silent --state /tmp/state.xml && \
-    rm -rf /tmp/*
+RUN apt-get purge ^openjdk-6-*
+#java 8
+RUN apt-get install software-properties-common -y
+RUN add-apt-repository ppa:webupd8team/java -y
+RUN apt-get update
+RUN echo debconf shared/accepted-oracle-license-v1-1 select true | debconf-set-selections
+RUN apt-get install oracle-java8-installer -y
+RUN apt-get install oracle-java8-set-default
 
-ADD run /usr/local/bin/netbeans
+# Define commonly used JAVA_HOME variable
+ENV JAVA_HOME /usr/lib/jvm/java-8-oracle
 
-CMD /usr/local/bin/netbeans
+ENV TMP_DOWNLOAD /tmp/downloads
+RUN mkdir -p ${TMP_DOWNLOAD}
+WORKDIR ${TMP_DOWNLOAD}
+
+RUN wget -vP $TMP_DOWNLOAD http://download.netbeans.org/netbeans/8.1/rc2/bundles/netbeans-8.1rc2-javaee-linux.sh
+ENV NETBEANS_SCRIPT=$TMP_DOWNLOAD/netbeans-8.1rc2-javaee-linux.sh
+RUN chmod +x $NETBEANS_SCRIPT   
+RUN apt-get install -y  libxext-dev libxrender-dev libxtst-dev && apt-get clean && rm -rf /var/lib/apt/lists/*   
+RUN $NETBEANS_SCRIPT --silent -J-Djava.awt.headless=true -J-Dswing.defaultlaf=javax.swing.plaf.nimbus.NimbusLookAndFeel
+RUN sed -e '/netbeans_jdkhome/ s/^#*/#/' -i /usr/local/netbeans-8.1rc2/etc/netbeans.conf
+
+CMD /usr/local/netbeans-8.1rc2/bin/netbeans --laf com.sun.java.swing.plaf.nimbus.NimbusLookAndFeel
