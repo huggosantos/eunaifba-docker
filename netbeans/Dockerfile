@@ -1,13 +1,8 @@
-#####################################################
-#  1)run xhost + locally 
-#  2)docker run -it 
-#              -v=/tmp/.X11-unix:/tmp/.X11-unix
-#              -e DISPLAY=unix$DISPLAY 
-#              --device /dev/ati #adjust to your graphics driver
-#               netbeans:8.1rc2 
-# Ubuntu
+
 FROM huggosantos/ubuntu 
 MAINTAINER Huggo Oliveira "huggo.oliveira1@gmail.com"
+
+RUN locale-gen pt_BR.UTF-8 && update-locale LANG=pt_BR.UTF-8
 
 RUN apt-get update && apt-get install -y \
        subversion \
