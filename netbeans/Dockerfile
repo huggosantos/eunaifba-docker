@@ -5,9 +5,8 @@ MAINTAINER Huggo Oliveira "huggo.oliveira1@gmail.com"
 RUN locale-gen pt_BR.UTF-8 && update-locale LANG=pt_BR.UTF-8
 
 RUN apt-get update && apt-get install -y \
-       subversion \
-       git \
-       wget https://github.com/IFBAEunapolis/SADE.git
+       git wget https://github.com/IFBAEunapolis/SADE.git
+       
 
 RUN apt-get purge ^openjdk-6-*
 #java 8
