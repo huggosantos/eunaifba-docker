@@ -1,5 +1,5 @@
 
-FROM huggosantos/ubuntu 
+FROM huggosantos/wildfly-mysql/9
 MAINTAINER Huggo Oliveira "huggo.oliveira1@gmail.com"
 
 RUN locale-gen pt_BR.UTF-8 && update-locale LANG=pt_BR.UTF-8
