@@ -3,7 +3,7 @@ FROM huggosantos/wildfly-mysql
 MAINTAINER Huggo Oliveira "huggo.oliveira1@gmail.com"
 
 
-RUN apt-get update && apt-get install -y  git \ wget
+RUN apt-get update && apt-get install -y  git 
        
 
 RUN apt-get purge ^openjdk-6-*
