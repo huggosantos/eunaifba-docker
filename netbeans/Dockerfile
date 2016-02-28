@@ -31,5 +31,5 @@ RUN sed -e '/netbeans_jdkhome/ s/^#*/#/' -i /usr/local/netbeans-8.1/etc/netbeans
 
 CMD /usr/local/netbeans-8.1/bin/netbeans --laf com.sun.java.swing.plaf.nimbus.NimbusLookAndFeel
 RUN cd root/NetBeansProjects 
-RUN git clone git://git@github.com:IFBAEunapolis/prova-avaliacao-curso.git       
+RUN git clone git@github.com:IFBAEunapolis/prova-avaliacao-curso.git       
 
