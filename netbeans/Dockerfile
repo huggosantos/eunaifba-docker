@@ -29,6 +29,7 @@ RUN apt-get install -y  libxext-dev libxrender-dev libxtst-dev && apt-get clean 
 RUN $NETBEANS_SCRIPT --silent -J-Djava.awt.headless=true -J-Dswing.defaultlaf=javax.swing.plaf.nimbus.NimbusLookAndFeel
 RUN sed -e '/netbeans_jdkhome/ s/^#*/#/' -i /usr/local/netbeans-8.1/etc/netbeans.conf
 
-RUN cd root/NetBeansProjects/ git clone git://git@github.com:IFBAEunapolis/prova-avaliacao-curso.git       
-
 CMD /usr/local/netbeans-8.1/bin/netbeans --laf com.sun.java.swing.plaf.nimbus.NimbusLookAndFeel
+RUN cd root/NetBeansProjects 
+RUN git clone git://git@github.com:IFBAEunapolis/prova-avaliacao-curso.git       
+
