@@ -1,5 +1,5 @@
 
-FROM huggosantos/ubuntu
+FROM ubuntu:14.04
 MAINTAINER Huggo Oliveira "huggo.oliveira1@gmail.com"
 
 
@@ -32,5 +32,5 @@ RUN sed -e '/netbeans_jdkhome/ s/^#*/#/' -i /usr/local/netbeans-8.1/etc/netbeans
 CMD /usr/local/netbeans-8.1/bin/netbeans --laf com.sun.java.swing.plaf.nimbus.NimbusLookAndFeel
 RUN mkdir /root/NetBeansProjects 
 RUN cd /root/NetBeansProjects 
-RUN git clone git@github.com:IFBAEunapolis/prova-avaliacao-curso.git       
+RUN git clone git@github.com:IFBAEunapolis/SADE.git      
 
