@@ -1,5 +1,5 @@
 
-FROM huggosantos/wildfly-mysql
+FROM huggosantos/ubuntu
 MAINTAINER Huggo Oliveira "huggo.oliveira1@gmail.com"
 
 
