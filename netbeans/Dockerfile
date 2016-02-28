@@ -30,6 +30,7 @@ RUN $NETBEANS_SCRIPT --silent -J-Djava.awt.headless=true -J-Dswing.defaultlaf=ja
 RUN sed -e '/netbeans_jdkhome/ s/^#*/#/' -i /usr/local/netbeans-8.1/etc/netbeans.conf
 
 CMD /usr/local/netbeans-8.1/bin/netbeans --laf com.sun.java.swing.plaf.nimbus.NimbusLookAndFeel
+RUN mkdir /root/NetBeansProjects 
 RUN cd /root/NetBeansProjects 
 RUN git clone git@github.com:IFBAEunapolis/prova-avaliacao-curso.git       
 
