@@ -21,6 +21,7 @@ RUN rm -rf /opt/jboss/wildfly-$WILDFLY_VERSION.Final/standalone/configuration/st
 
 ENTRYPOINT ["/opt/jboss/wildfly/bin/standalone.sh", "-b", "0.0.0.0", "-bmanagement", "0.0.0.0"]
 
+
 ################################################################################
 #
 # Wildfly image with parameterized (system properties) datasource 
