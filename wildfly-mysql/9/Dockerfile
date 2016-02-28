@@ -1,4 +1,4 @@
-FROM huggosantos/wildfly9
+FROM huggosantos/wildfly
 
 ENV WILDFLY_VERSION 9.0.2
 ENV MYSQL_CONNECTOR_VERSION 5.1.38
