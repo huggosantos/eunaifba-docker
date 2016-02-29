@@ -1,5 +1,5 @@
 
-FROM ubuntu:14.04
+FROM huggosantos/wildfly
 MAINTAINER Huggo Oliveira "huggo.oliveira1@gmail.com"
 
 #install git
@@ -39,9 +39,9 @@ RUN mkdir /root/NetBeansProjects
 RUN cd /root/NetBeansProjects &&  git clone https://github.com/IFBAEunapolis/SADE.git 
   
 #install maven
-RUN mkdir /usr/local/maven 
-RUN chmod 777 /usr/local/maven 
-RUN cd /usr/local/maven && curl -OL http://mirror.olnevhost.net/pub/apache/maven/maven-3/3.3.3/binaries/apache-maven-3.3.3-bin.tar.gz
-RUN sudo tar -zxf .semaphore-cache/apache-maven-3.3.3-bin.tar.gz -C /usr/local/maven
-RUN sudo ln -s /usr/local/maven/apache-maven-3.3.3/bin/mvn /usr/bin/mvn
-RUN mvn -v 
+#RUN mkdir /usr/local/maven 
+#RUN chmod 777 /usr/local/maven 
+#RUN cd /usr/local/maven && curl -OL http://mirror.olnevhost.net/pub/apache/maven/maven-3/3.3.3/binaries/apache-maven-3.3.3-bin.tar.gz
+#RUN sudo tar -zxf .semaphore-cache/apache-maven-3.3.3-bin.tar.gz -C /usr/local/maven
+#RUN sudo ln -s /usr/local/maven/apache-maven-3.3.3/bin/mvn /usr/bin/mvn
+#RUN mvn -v 
