@@ -1,5 +1,5 @@
 
-FROM huggosantos/wildfly
+FROM ubuntu:14.04
 MAINTAINER Huggo Oliveira "huggo.oliveira1@gmail.com"
 
 #install git
