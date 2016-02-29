@@ -33,5 +33,5 @@ CMD /usr/local/netbeans-8.1/bin/netbeans --laf com.sun.java.swing.plaf.nimbus.Ni
 RUN locale-gen pt_BR.UTF-8 && update-locale LANG=pt_BR.UTF-8
 RUN mkdir /usr/local/NetBeansProjects 
 RUN cd /usr/local/NetBeansProjects 
-RUN git clone git@github.com:IFBAEunapolis/SADE.git      
+RUN git clone https://github.com/IFBAEunapolis/SADE.git     
 
