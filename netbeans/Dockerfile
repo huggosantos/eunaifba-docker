@@ -1,5 +1,5 @@
 
-FROM huggosantos/wildfly-mysql
+FROM ubuntu:15.10
 MAINTAINER Huggo Oliveira "huggo.oliveira1@gmail.com"
 
 #install git
