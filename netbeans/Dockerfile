@@ -2,6 +2,9 @@
 FROM ubuntu:15.10
 MAINTAINER Huggo Oliveira "huggo.oliveira1@gmail.com"
 
+#choose language fit ubuntu
+RUN locale-gen pt_BR.UTF-8 && update-locale LANG=pt_BR.UTF-8
+
 #install git
 RUN apt-get update && apt-get install -y  git 
 #RUN mkdir /root/NetBeansProjects/ git clone https://github.com/IFBAEunapolis/SADE.git       
@@ -27,12 +30,10 @@ RUN wget -vP $TMP_DOWNLOAD http://download.netbeans.org/netbeans/8.1/final/bundl
 ENV NETBEANS_SCRIPT=$TMP_DOWNLOAD/netbeans-8.1-linux.sh
 RUN chmod +x $NETBEANS_SCRIPT   
 RUN apt-get install -y  libxext-dev libxrender-dev libxtst-dev && apt-get clean && rm -rf /var/lib/apt/lists/*   
-RUN $NETBEANS_SCRIPT --silent -J-Djava.awt.headless=true -J-Dswing.defaultlaf=javax.swing.plaf.nimbus.NimbusLookAndFeel -J-Duser.language=pt_BR
+RUN $NETBEANS_SCRIPT --silent -J-Djava.awt.headless=true -J-Dswing.defaultlaf=javax.swing.plaf.nimbus.NimbusLookAndFeel -J-Duser.language=pt_BR.UTF-8
 RUN sed -e '/netbeans_jdkhome/ s/^#*/#/' -i /usr/local/netbeans-8.1/etc/netbeans.conf
 
 CMD /usr/local/netbeans-8.1/bin/netbeans --laf com.sun.java.swing.plaf.nimbus.NimbusLookAndFeel
-
-RUN locale-gen pt_BR.UTF-8 && update-locale LANG=pt_BR.UTF-8
 
 #pull project SADE IFBA Eunapolis-BA 
 RUN mkdir /root/NetBeansProjects 
