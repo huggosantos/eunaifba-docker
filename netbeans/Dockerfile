@@ -13,7 +13,7 @@ MAINTAINER Huggo Oliveira "huggo.oliveira1@gmail.com"
 RUN apt-get update && apt-get install -y  git 
 
 #install netbeans
-RUN download /home/netbeans-8.1
+ENV download /home/netbeans-8.1
 RUN wget $download http://download.netbeans.org/netbeans/8.1/final/zip/moduleclusters/netbeans-8.1-201510222201-all-in-one.zip
 RUN cd /home/netbeans-8.1 && gunzip netbeans-8.1-201510222201-all-in-one.zip
 
