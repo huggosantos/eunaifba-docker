@@ -1,9 +1,10 @@
 FROM huggosantos/wildfly-mysql
 MAINTAINER Huggo Oliveira "huggo.oliveira1@gmail.com"
 
+USER root
 
 #choose language fit ubuntu
-#RUN locale-gen pt_BR.UTF-8 && update-locale LANG=pt_BR.UTF-8
+RUN locale-gen pt_BR.UTF-8 && update-locale LANG=pt_BR.UTF-8
 
 #install git
 RUN apt-get update && apt-get install -y  git 
@@ -11,7 +12,7 @@ RUN apt-get update && apt-get install -y  git
 #install netbeans
 ENV download /root/netbeans-8.1
 RUN wget $download http://download.netbeans.org/netbeans/8.1/final/zip/moduleclusters/netbeans-8.1-201510222201-all-in-one.zip
-RUN cd /home/netbeans-8.1 && gunzip netbeans-8.1-201510222201-all-in-one.zip
+RUN cd /root/netbeans-8.1 && unzip netbeans-8.1-201510222201-all-in-one.zip
 
 
 #push project SADE IFBA Eunapolis-BA 
