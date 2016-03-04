@@ -1,12 +1,6 @@
 FROM huggosantos/wildfly-mysql
 MAINTAINER Huggo Oliveira "huggo.oliveira1@gmail.com"
 
-RUN adduser --disabled-password --home /opt/desenvolvedor --gecos "" desenvolvedor
-
-WORKDIR /opt/desenvolvedor
-
-USER desenvolvedor
-
 
 #choose language fit ubuntu
 #RUN locale-gen pt_BR.UTF-8 && update-locale LANG=pt_BR.UTF-8
@@ -15,14 +9,14 @@ USER desenvolvedor
 RUN apt-get update && apt-get install -y  git 
 
 #install netbeans
-ENV download /home/desenvolvedor/netbeans-8.1
+ENV download /root/netbeans-8.1
 RUN wget $download http://download.netbeans.org/netbeans/8.1/final/zip/moduleclusters/netbeans-8.1-201510222201-all-in-one.zip
 RUN cd /home/netbeans-8.1 && gunzip netbeans-8.1-201510222201-all-in-one.zip
 
 
 #push project SADE IFBA Eunapolis-BA 
-RUN mkdir /home/desenvovedor/NetBeansProjects 
-RUN cd /home/desenvovedor/NetBeansProjects &&  git clone https://github.com/IFBAEunapolis/SADE.git 
+RUN mkdir /root/NetBeansProjects 
+RUN cd /root/NetBeansProjects  &&  git clone https://github.com/IFBAEunapolis/SADE.git 
    
 #install maven
 #RUN mkdir /usr/local/maven 
