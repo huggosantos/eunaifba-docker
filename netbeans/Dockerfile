@@ -10,9 +10,19 @@ RUN locale-gen pt_BR.UTF-8 && update-locale LANG=pt_BR.UTF-8
 RUN apt-get update && apt-get install -y  git 
 
 #install netbeans
-ENV download /root/netbeans-8.1
-RUN wget $download http://download.netbeans.org/netbeans/8.1/final/zip/moduleclusters/netbeans-8.1-201510222201-all-in-one.zip
-RUN cd /root/netbeans-8.1 && unzip netbeans-8.1-201510222201-all-in-one.zip
+ENV TMP_DOWNLOAD /tmp/downloads
+RUN mkdir -p ${TMP_DOWNLOAD}
+WORKDIR ${TMP_DOWNLOAD}
+
+#install netbeans
+RUN wget -vP $TMP_DOWNLOAD http://download.netbeans.org/netbeans/8.1/final/bundles/netbeans-8.1-linux.sh
+ENV NETBEANS_SCRIPT=$TMP_DOWNLOAD/netbeans-8.1-linux.sh
+RUN chmod +x $NETBEANS_SCRIPT   
+RUN apt-get install -y  libxext-dev libxrender-dev libxtst-dev && apt-get clean && rm -rf /var/lib/apt/lists/*   
+RUN $NETBEANS_SCRIPT --silent -J-Djava.awt.headless=true -J-Dswing.defaultlaf=javax.swing.plaf.nimbus.NimbusLookAndFeel -J-Duser.language=pt_BR.UTF-8
+RUN sed -e '/netbeans_jdkhome/ s/^#*/#/' -i /usr/local/netbeans-8.1/etc/netbeans.conf
+
+CMD /usr/local/netbeans-8.1/bin/netbeans --laf com.sun.java.swing.plaf.nimbus.NimbusLookAndFeel
 
 
 #push project SADE IFBA Eunapolis-BA 
