@@ -19,14 +19,14 @@ RUN rm wildfly-$WILDFLY_VERSION.tar.gz
 RUN ln -s wildfly-$WILDFLY_VERSION wildfly
 
 # Set the JBOSS_HOME env variable
-ENV JBOSS_HOME /opt/v/wildfly
+ENV JBOSS_HOME /opt/desenvolvedor/wildfly
 
 # add management user (username: admin, passwd: wildfly)
 RUN /opt/desenvolvedor/wildfly/bin/add-user.sh admin wildfly --silent
 
 EXPOSE 8080 9990
 
-CMD ["/opt/jboss/wildfly/bin/standalone.sh", "-b", "0.0.0.0", "-bmanagement", "0.0.0.0"]
+CMD ["/opt/desenvolvedor/wildfly/bin/standalone.sh", "-b", "0.0.0.0", "-bmanagement", "0.0.0.0"]
 
 # docker build --no-cache -t eunaifba/wildfly:9.0.2 .
 # docker run -d --name wildfly9 -p 8080:8080 -p 9990:9990 eunaifba/wildfly:9.0.2
