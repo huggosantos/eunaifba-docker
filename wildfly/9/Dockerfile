@@ -1,12 +1,12 @@
 FROM huggosantos/jdk8
 
-RUN adduser --disabled-password --home /opt/jboss --gecos "" jboss
+RUN adduser --disabled-password --home /opt/desenvolvedor --gecos "" desenvolvedor
 
 # Set the working directory to jboss' user home directory
-WORKDIR /opt/jboss
+WORKDIR /opt/desenvolvedor
 
 # Specify the user which should be used to execute all commands below
-USER jboss
+USER desenvolvedor
 
 # Set the WILDFLY_VERSION env variable
 ENV WILDFLY_VERSION 9.0.2.Final
@@ -19,10 +19,10 @@ RUN rm wildfly-$WILDFLY_VERSION.tar.gz
 RUN ln -s wildfly-$WILDFLY_VERSION wildfly
 
 # Set the JBOSS_HOME env variable
-ENV JBOSS_HOME /opt/jboss/wildfly
+ENV JBOSS_HOME /opt/v/wildfly
 
 # add management user (username: admin, passwd: wildfly)
-RUN /opt/jboss/wildfly/bin/add-user.sh admin wildfly --silent
+RUN /opt/desenvolvedor/wildfly/bin/add-user.sh admin wildfly --silent
 
 EXPOSE 8080 9990
 
