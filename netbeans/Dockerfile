@@ -1,9 +1,11 @@
 FROM huggosantos/wildfly-mysql
 MAINTAINER Huggo Oliveira "huggo.oliveira1@gmail.com"
 
-#RUN adduser --disabled-password --home /desevolvedor --gecos "" desevolvedor
+RUN adduser --disabled-password --home /opt/desevolvedor --gecos "" desevolvedor
 
-#USER desenvolvedor
+WORKDIR /opt/desenvolvedor
+
+USER desenvolvedor
 
 
 #choose language fit ubuntu
