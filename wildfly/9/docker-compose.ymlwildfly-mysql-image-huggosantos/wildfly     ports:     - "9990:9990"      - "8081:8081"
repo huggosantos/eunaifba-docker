@@ -1,0 +1,10 @@
+wildfly-mysql:
+
+  image: huggosantos/wildfly
+
+
+  ports:
+    - "9990:9990"
+
+    - "8080:8081"
+  
