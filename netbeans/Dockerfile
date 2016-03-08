@@ -1,8 +1,6 @@
 FROM huggosantos/wildfly-mysql
 MAINTAINER Huggo Oliveira "huggo.oliveira1@gmail.com"
 
-USER root
-
 #choose language fit ubuntu
 RUN locale-gen pt_BR.UTF-8 && update-locale LANG=pt_BR.UTF-8
 
