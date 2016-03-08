@@ -17,7 +17,7 @@ RUN mkdir /home/NetBeansProjects
 RUN cd /home/NetBeansProjects &&  git clone https://github.com/IFBAEunapolis/SADE.git 
 
 #install unzip
-RUN sudo apt-get install unzip
+RUN apt-get install unzip
 
 #RUN sudo apt-get install wget
 
