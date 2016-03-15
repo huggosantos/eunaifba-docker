@@ -28,4 +28,4 @@ RUN axel http://download.netbeans.org/netbeans/8.1/final/zip/moduleclusters/netb
 RUN unzip netbeans-8.1-201510222201-all-in-one.zip
 
 
-CMD netbeans/bin/netbeans
+CMD /netbeans/bin/netbeans
