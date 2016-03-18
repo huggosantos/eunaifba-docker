@@ -20,7 +20,19 @@ USER root
 #instal unzip && axel && x11 serve Installation
 RUN apt-get install unzip
 RUN apt-get install -q -y axel 
-RUN apt-get install -q -y xorg
+apt-get update && apt-get -y install \
+	ca-certificates \
+	curl \
+	tar \
+	bzip2 \
+	libglib2.0-0 \
+	libx11-6 \
+	libcairo2 \
+	libpango-1.0-0 \
+	libpangocairo-1.0-0 \
+	libgtk2.0-0 \
+	--no-install-recommends \
+	&& rm -rf /var/lib/apt/lists/*
 
 #install netbeans
 RUN mkdir /home/netbeans-8.1
