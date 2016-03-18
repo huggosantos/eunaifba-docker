@@ -20,7 +20,7 @@ USER root
 #instal unzip && axel && x11 serve Installation
 RUN apt-get install unzip
 RUN apt-get install -q -y axel 
-apt-get update && apt-get -y install \
+RUN apt-get update && apt-get -y install \
 	ca-certificates \
 	curl \
 	tar \
