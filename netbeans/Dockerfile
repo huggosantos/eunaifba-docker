@@ -35,7 +35,6 @@ apt-get update && apt-get -y install \
 	&& rm -rf /var/lib/apt/lists/*
 
 #install netbeans
-RUN mkdir /home/netbeans-8.1
 RUN axel http://download.netbeans.org/netbeans/8.1/final/zip/moduleclusters/netbeans-8.1-201510222201-all-in-one.zip
 RUN unzip netbeans-8.1-201510222201-all-in-one.zip
 
