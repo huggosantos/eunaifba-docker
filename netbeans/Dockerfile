@@ -5,7 +5,7 @@ USER root
 
 
 #choose language fit ubuntu
-#RUN locale-gen pt_BR.UTF-8 && update-locale LANG=pt_BR.UTF-8
+RUN locale-gen pt_BR.UTF-8 && update-locale LANG=pt_BR.UTF-8
 
 #install git
 RUN apt-get update && apt-get install -y  git 
@@ -21,8 +21,7 @@ RUN apt-get install -y maven
 RUN apt-get install unzip
 RUN apt-get install -q -y axel 
 RUN apt-get update 
-RUN apt-get install -y xorg
-
+RUN apt-get -y install xorg openbox
 #install netbeans
 RUN axel http://download.netbeans.org/netbeans/8.1/final/zip/moduleclusters/netbeans-8.1-201510222201-all-in-one.zip
 RUN unzip netbeans-8.1-201510222201-all-in-one.zip
