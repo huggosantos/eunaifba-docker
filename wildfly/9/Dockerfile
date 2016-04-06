@@ -1,7 +1,9 @@
 FROM huggosantos/jdk8
 
-user root
+USER root
 # Set the WILDFLY_VERSION env variable
+WORKDIR /opt/jboss
+
 ENV WILDFLY_VERSION 10.0.0.Final
 
 ENV DOWNLOAD_URL=http://download.jboss.org/wildfly/$WILDFLY_VERSION
