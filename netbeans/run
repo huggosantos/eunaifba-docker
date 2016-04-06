@@ -1,4 +1,0 @@
-#!/bin/bash
-
-# Make sure the user data directory is owned by the developer user
-exec /usr/local/netbeans/bin/netbeans
