@@ -1,4 +1,5 @@
 [![Stories in Ready](https://badge.waffle.io/huggosantos/eunaifba-docker.png?label=ready&title=Ready)](https://waffle.io/huggosantos/eunaifba-docker)
+
 [![Stories in Progress](https://badge.waffle.io/huggosantos/eunaifba-docker.png?label=in%20progress&title=In%20Progress)](https://waffle.io/huggosantos/eunaifba-docker/)
 
 [![Docker Pulls](https://img.shields.io/docker/pulls/huggosantos/netbeans.svg?style=flat-square)](https://links.huggosantos/netbeans)
