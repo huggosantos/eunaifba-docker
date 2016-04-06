@@ -1,5 +1,5 @@
 #eunaifba/jdk:8
-FROM ubuntu:15.10
+FROM ubuntu:14.04
 
 # Install Java 8
 RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -q -y software-properties-common
